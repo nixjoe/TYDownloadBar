@@ -8,8 +8,9 @@
       2. 使用前先引入mint-ui，其中弹窗需要用到mint-ui的popup <br>
       3. 以下是下载微信的二维码，下载页对iOS和 Android 做了区分，可以避开应用宝引导用户下载App
     </div>
-    <div class="">
-      <img src="">
+    <div class="img-box">
+      <!-- 扫描这个二维码，会打开：https://thomasty.github.io/TYDownloadBar/dist/#/download -->
+      <img class="qr-img" src="./qr_img.png">
     </div>
   </div>
 </template>
@@ -48,5 +49,12 @@ export default {
 .tip {
   text-align: left;
   background-color: rgb(215, 215, 215);
+}
+.img-box {
+  margin: 0px auto;
+}
+.qr-img {
+  width: 200px;
+  height: 200px;
 }
 </style>
