@@ -1,13 +1,24 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+    <download-bar ref="downloadBar" position="top"></download-bar>
+    <router-view @downloadApp="downloadApp"></router-view>
+    <download-bar position="bottom"></download-bar>
   </div>
 </template>
 
 <script>
+import DownloadBar from './components/downloadComponent/downloadBar.vue'
+
 export default {
-  name: 'app'
+  name: 'app',
+  components: {
+    'download-bar': DownloadBar
+  },
+  methods: {
+    downloadApp: function (data) {
+      this.$refs.downloadBar.downloadApp()
+    }
+  }
 }
 </script>
 
@@ -18,6 +29,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
