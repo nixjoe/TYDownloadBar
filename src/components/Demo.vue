@@ -1,19 +1,10 @@
 <template>
   <div class="demo">
-    <div class="title">
-      TYDownloadBar
+    <div class="smartphone" >
+      <div class="content">
+      </div>
     </div>
-    <div class="tip">
-      1. 基于vue封装的引导用户由web进入App、下载App(以微信为例)TYDownloadBar组件 <br>
-      2. 使用前先引入mint-ui，其中弹窗需要用到mint-ui的popup
-    </div>
-    <div class="img-box">
-      顺便加入了DownloadMobile组件，这个组件是用作通过二维码引导用户下载，在微信中使用DownloadMobile组件可以避开应用宝下载App。 <br>
-      扫描这个二维码，可以去到DownloadMobile组件
-      <br>
-      <!-- 扫描这个二维码，会打开：https://thomasty.github.io/TYDownloadBar/dist/#/download -->
-      <img class="qr-img" src="./qr_img.png">
-    </div>
+
   </div>
 </template>
 
@@ -22,7 +13,7 @@ export default {
   name: 'Demo',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Our App'
     }
   },
   methods: {
@@ -39,25 +30,57 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .demo {
+  margin-top :30px;
   /*height: 100vh;*/
 }
-.title {
-  font-size: 20px;
-  font-weight: bold;
-  height: 30px;
-  line-height: 30px;
-  background-color: rgb(215, 215, 215);
-}
-.tip {
-  text-align: left;
-  background-color: rgb(215, 215, 215);
-}
-.img-box {
-  margin-top: 20px;
-  text-align: left;
-}
-.qr-img {
+
+/* The device with borders */
+.smartphone {
+  position: relative;
   width: 200px;
-  height: 200px;
+  height: 340px;
+  margin: auto;
+  border: 16px black solid;
+  border-top-width: 60px;
+  border-bottom-width: 60px;
+  border-radius: 36px;
 }
+
+/* The horizontal line on the top of the device */
+.smartphone:before {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 5px;
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #333;
+  border-radius: 10px;
+}
+
+/* The circle on the bottom of the device */
+.smartphone:after {
+  content: '';
+  display: block;
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  left: 50%;
+  bottom: -65px;
+  transform: translate(-50%, -50%);
+  background: #333;
+  border-radius: 50%;
+}
+
+/* The screen (or content) of the device */
+.smartphone .content {
+  width: 200px;
+  height: 340px;
+  background-image: url(downloadComponent/app_capture.png);
+    background-repeat: no-repeat;
+    background-size: 200px 340px;
+}
+
 </style>
